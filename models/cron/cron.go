@@ -1,6 +1,7 @@
 package cron
 
 import (
+	"math/rand"
 	"time"
 )
 
@@ -45,6 +46,10 @@ func (c *cronImpl) Start() {
 }
 
 func (r *runner) next() {
+	if r.interval == -1 {
+		rand.Seed(time.Now().UnixNano())
+		r.interval = rand.Intn(10)
+	}
 	next := r.previous.Add(time.Duration(r.interval) * time.Second)
 	r.timer.Reset(next.Sub(time.Now()))
 }

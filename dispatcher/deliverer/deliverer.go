@@ -17,12 +17,14 @@ func NewDeliverer(pq pq.PQ) *Deliverer {
 }
 
 func (d *Deliverer) Process() {
-	rand.Seed(time.Now().UnixNano())
-	time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
+	if d.pq.Len() > 0 {
+		rand.Seed(time.Now().UnixNano())
+		time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
 
-	item := d.pq.Pop()
-	if item != nil {
-		order := item.(*pq.Item).Value.(*models.Order)
-		fmt.Println(fmt.Sprintf("deliver arrived, picked order: %d (%d)", order.ID, item.(*pq.Item).Priority))
+		item := d.pq.Pop()
+		if item != nil {
+			order := item.(*pq.Item).Value.(*models.Order)
+			fmt.Println(fmt.Sprintf("deliver arrived, picked order: %d (%d)", order.ID, item.(*pq.Item).Priority))
+		}
 	}
 }

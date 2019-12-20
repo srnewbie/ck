@@ -27,6 +27,7 @@ func (s *TestDeliverer) TestProcess() {
 		Value:    order,
 		Priority: 8,
 	}
+	pq.On("Len").Return(1)
 	pq.On("Pop").Return(item)
 	s.deliverer.Process()
 }

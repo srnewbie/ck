@@ -1,7 +1,8 @@
 mode: set
 ck/dispatcher/deliverer/deliverer.go:15.40,17.2 1 1
-ck/dispatcher/deliverer/deliverer.go:19.31,24.17 4 1
-ck/dispatcher/deliverer/deliverer.go:24.17,27.3 2 1
+ck/dispatcher/deliverer/deliverer.go:19.31,20.20 1 1
+ck/dispatcher/deliverer/deliverer.go:20.20,25.18 4 1
+ck/dispatcher/deliverer/deliverer.go:25.18,28.4 2 1
 ck/dispatcher/preparer/preparer.go:18.54,20.2 1 1
 ck/dispatcher/preparer/preparer.go:22.30,24.14 2 1
 ck/dispatcher/preparer/preparer.go:24.14,39.3 7 1

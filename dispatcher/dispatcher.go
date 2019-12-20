@@ -33,7 +33,7 @@ func New() *Dispatcher {
 			},
 			&cron.Config{
 				Name:     "deliver",
-				Interval: 0,
+				Interval: -1,
 				Cb:       deliverer.Process,
 			},
 		}),

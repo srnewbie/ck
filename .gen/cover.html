@@ -89,14 +89,16 @@ func NewDeliverer(pq pq.PQ) *Deliverer <span class="cov8" title="1">{
 }</span>
 
 func (d *Deliverer) Process() <span class="cov8" title="1">{
-        rand.Seed(time.Now().UnixNano())
-        time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
+        if d.pq.Len() &gt; 0 </span><span class="cov8" title="1">{
+                rand.Seed(time.Now().UnixNano())
+                time.Sleep(time.Duration(rand.Intn(10)) * time.Second)
 
-        item := d.pq.Pop()
-        if item != nil </span><span class="cov8" title="1">{
-                order := item.(*pq.Item).Value.(*models.Order)
-                fmt.Println(fmt.Sprintf("deliver arrived, picked order: %d (%d)", order.ID, item.(*pq.Item).Priority))
-        }</span>
+                item := d.pq.Pop()
+                if item != nil </span><span class="cov8" title="1">{
+                        order := item.(*pq.Item).Value.(*models.Order)
+                        fmt.Println(fmt.Sprintf("deliver arrived, picked order: %d (%d)", order.ID, item.(*pq.Item).Priority))
+                }</span>
+        }
 }
 </pre>
 		
