@@ -29,15 +29,15 @@ func New() PQ {
 }
 
 func (pq *pq) Push(x interface{}) {
-	q.lock.Lock()
-	defer q.lock.Unlock()
+	pq.lock.Lock()
+	defer pq.lock.Unlock()
 
 	heap.Push(pq.items, x)
 }
 
 func (pq *pq) Pop() interface{} {
-	q.lock.Lock()
-	defer q.lock.Unlock()
+	pq.lock.Lock()
+	defer pq.lock.Unlock()
 
 	return heap.Pop(pq.items)
 }
