@@ -1,8 +1,8 @@
 package main
 
 import (
-	"ck/dispatcher"
-	"ck/server"
+	"github.com/srnewbie/ck/dispatcher"
+	"github.com/srnewbie/ck/server"
 )
 
 func main() {

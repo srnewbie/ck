@@ -1,6 +1,6 @@
-SERVER_PKG:=ck
+SERVER_PKG:=github.com/srnewbie/ck
 SERVER_BIN=ck_server
-APP_PKG:=ck/app
+APP_PKG:=github.com/srnewbie/ck/app
 APP_BIN=ck_app
 
 all:

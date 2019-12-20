@@ -1,13 +1,14 @@
 package dispatcher
 
 import (
-	"ck/models"
-	"ck/models/cron"
-	"ck/models/pq"
-	"ck/models/queue"
 	"fmt"
 	"math/rand"
 	"time"
+
+	"github.com/srnewbie/ck/models"
+	"github.com/srnewbie/ck/models/cron"
+	"github.com/srnewbie/ck/models/pq"
+	"github.com/srnewbie/ck/models/queue"
 )
 
 type Dispatcher struct {

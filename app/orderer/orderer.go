@@ -2,7 +2,6 @@ package orderer
 
 import (
 	"bytes"
-	"ck/models"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -10,6 +9,8 @@ import (
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/srnewbie/ck/models"
 )
 
 type Orderer struct {

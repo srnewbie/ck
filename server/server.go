@@ -1,9 +1,10 @@
 package server
 
 import (
-	"ck/dispatcher"
-	"ck/handlers"
 	"net/http"
+
+	"github.com/srnewbie/ck/dispatcher"
+	"github.com/srnewbie/ck/handlers"
 )
 
 func New(d *dispatcher.Dispatcher) *http.Server {

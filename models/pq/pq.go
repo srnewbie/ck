@@ -1,9 +1,10 @@
 package pq
 
 import (
-	"ck/models"
 	"container/heap"
 	"sync"
+
+	"github.com/srnewbie/ck/models"
 )
 
 type (

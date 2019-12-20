@@ -1,10 +1,11 @@
 package handlers
 
 import (
-	"ck/dispatcher"
-	"ck/models"
 	"encoding/json"
 	"net/http"
+
+	"github.com/srnewbie/ck/dispatcher"
+	"github.com/srnewbie/ck/models"
 )
 
 type Handlers struct {
