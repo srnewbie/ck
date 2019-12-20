@@ -3,8 +3,8 @@ package server
 import (
 	"net/http"
 
-	"github.com/srnewbie/ck/dispatcher"
-	"github.com/srnewbie/ck/handlers"
+	"ck/dispatcher"
+	"ck/handlers"
 )
 
 func New(d *dispatcher.Dispatcher) *http.Server {

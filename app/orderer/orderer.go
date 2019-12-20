@@ -10,7 +10,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/srnewbie/ck/models"
+	"ck/models"
 )
 
 type Orderer struct {

@@ -1,7 +1,7 @@
 package dispatcher
 
 import (
-	"github.com/srnewbie/ck/models/pq"
+	"ck/models/pq"
 )
 
 type Deliverer struct {

@@ -4,7 +4,7 @@ import (
 	"container/heap"
 	"sync"
 
-	"github.com/srnewbie/ck/models"
+	"ck/models"
 )
 
 type (

@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/srnewbie/ck/dispatcher"
-	"github.com/srnewbie/ck/models"
+	"ck/dispatcher"
+	"ck/models"
 )
 
 type Handlers struct {

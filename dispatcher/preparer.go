@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/srnewbie/ck/models"
-	"github.com/srnewbie/ck/models/pq"
-	"github.com/srnewbie/ck/models/queue"
+	"ck/models"
+	"ck/models/pq"
+	"ck/models/queue"
 )
 
 type Preparer struct {

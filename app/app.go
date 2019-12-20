@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/srnewbie/ck/app/orderer"
+	"ck/app/orderer"
 )
 
 func main() {
