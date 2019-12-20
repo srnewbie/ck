@@ -56,7 +56,7 @@ func (o *Orderer) Post(order *models.Order) {
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
-	fmt.Println(string(body), "\n")
+	fmt.Println(string(body))
 }
 
 func (o *Orderer) Delay() {

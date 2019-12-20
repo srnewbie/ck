@@ -1,0 +1,9 @@
+mode: set
+ck/dispatcher/deliverer/deliverer.go:15.40,17.2 1 1
+ck/dispatcher/deliverer/deliverer.go:19.31,24.17 4 1
+ck/dispatcher/deliverer/deliverer.go:24.17,27.3 2 1
+ck/dispatcher/preparer/preparer.go:18.54,20.2 1 1
+ck/dispatcher/preparer/preparer.go:22.30,24.14 2 1
+ck/dispatcher/preparer/preparer.go:24.14,39.3 7 1
+ck/dispatcher/preparer/preparer.go:39.8,42.3 2 1
+ck/dispatcher/preparer/preparer.go:45.47,48.2 2 1

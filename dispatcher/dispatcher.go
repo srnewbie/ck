@@ -2,9 +2,9 @@ package dispatcher
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
 
+	"ck/dispatcher/deliverer"
+	"ck/dispatcher/preparer"
 	"ck/models"
 	"ck/models/cron"
 	"ck/models/pq"
@@ -12,21 +12,17 @@ import (
 )
 
 type Dispatcher struct {
-	cron     cron.Cron
-	oq       queue.Queue
-	preparer *Preparer
+	cron      cron.Cron
+	oq        queue.Queue
+	preparer  *preparer.Preparer
+	deliverer *deliverer.Deliverer
 }
 
 func New() *Dispatcher {
+	pq := pq.New()
 	oq := queue.New()
-	pqs := make([]pq.PQ, 10)
-	for i, _ := range pqs {
-		pqs[i] = pq.New()
-	}
-	preparer := &Preparer{
-		pqs: &pqs,
-		oq:  oq,
-	}
+	preparer := preparer.NewPreparer(pq, oq)
+	deliverer := deliverer.NewDeliverer(pq)
 	return &Dispatcher{
 		oq: oq,
 		cron: cron.New([]*cron.Config{
@@ -37,11 +33,12 @@ func New() *Dispatcher {
 			},
 			&cron.Config{
 				Name:     "deliver",
-				Interval: 10,
-				Cb:       func() { fmt.Println("I am deliver") },
+				Interval: 0,
+				Cb:       deliverer.Process,
 			},
 		}),
-		preparer: preparer,
+		preparer:  preparer,
+		deliverer: deliverer,
 	}
 }
 
@@ -53,14 +50,4 @@ func (d *Dispatcher) Push(order *models.Order) {
 	fmt.Println(fmt.Sprintf("order received: %d", order.ID))
 	d.oq.Push(order)
 	fmt.Println(fmt.Sprintf("-- order queue size: %d", d.oq.Len()))
-}
-
-func computePQIndex(order *models.Order) int {
-	rand.Seed(time.Now().UnixNano())
-	return rand.Intn(10)
-}
-
-func computePriority(order *models.Order) int {
-	rand.Seed(time.Now().UnixNano())
-	return rand.Intn(10)
 }

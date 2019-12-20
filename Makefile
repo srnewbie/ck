@@ -12,4 +12,6 @@ test:
 	mockery -dir=models/queue -name=Queue -case=underscore -output=.gen/mocks/
 	mockery -dir=models/pq -name=PQ -case=underscore -output=.gen/mocks/
 	mockery -dir=models/cron -name=Cron -case=underscore -output=.gen/mocks/
-	go test -cover $(go list ./...) 
+	go test ./... -cover -coverprofile .gen/cover.out
+	go tool cover -html=.gen/cover.out -o .gen/cover.html
+	open .gen/cover.html
